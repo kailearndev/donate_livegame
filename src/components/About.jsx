@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 
-
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import vcb from"../assets/vcb.jpg"
+import momo  from"../assets/momo.jpg"
 
 import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import "reactjs-popup/dist/index.css";
+import Popup from "reactjs-popup";
 
+// import ModalCustom from "../components/Modal";
 import toast, { Toaster } from "react-hot-toast";
-
 
 const ServiceCard = ({ index, title, icon, link, bankAccount }) => {
   const notify = () =>
@@ -23,9 +25,6 @@ const ServiceCard = ({ index, title, icon, link, bankAccount }) => {
         color: "#fff",
       },
     });
-
-  
-  
   return (
     <Tilt className="xs:w-[250px] w-full cursor-pointer">
       <motion.div
@@ -54,14 +53,22 @@ const ServiceCard = ({ index, title, icon, link, bankAccount }) => {
               {title}
             </a>
           ) : (
-            <CopyToClipboard text={bankAccount} onCopy={notify}>
-              <span
-                onClick={() => {}}
-                className="text-white text-[20px] font-bold text-center"
-              >
-                {title}
-              </span>
-            </CopyToClipboard>
+            <Popup
+              modal ={true}
+             contentStyle={{
+              width: '300px',
+              borderRadius: 8
+             }}
+             closeOnDocumentClick
+              trigger={<button className="text-white text-[20px] font-bold text-center"> {title}</button>}
+              position="center center"
+              lockScroll
+              
+            >
+              <div className="" >
+                <img   src= {title ==="Vietcombank" ? vcb : title ==="Momo" ? momo :'' }/>
+              </div>
+            </Popup>
           )}
         </div>
       </motion.div>
@@ -70,6 +77,8 @@ const ServiceCard = ({ index, title, icon, link, bankAccount }) => {
 };
 
 const About = () => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -85,7 +94,12 @@ const About = () => {
 
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+          <ServiceCard
+            key={service.title}
+            index={index}
+            onClick={() => setVisible(true)}
+            {...service}
+          />
         ))}
       </div>
       <Toaster position="bottom-center" reverseOrder={false} />

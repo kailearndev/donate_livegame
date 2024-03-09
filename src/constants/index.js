@@ -26,7 +26,20 @@ const services = [
   {
     title: "Discord",
     icon: "https://cdn.pixabay.com/photo/2021/03/02/12/02/logo-6062235_1280.png",
-    link: "https://discord.com/invite/CGPg6t5x",
+    link: "https://discord.com/invite/XvFmgJj3hz",
+  },
+ 
+  {
+    title: "Wescan",
+    icon: "https://wescan.vn/img/logo.ea09bf97.jpg",
+    link: "https://wescan.vn/livegameonline",
+    bankAccount: "phunguyen1992@gmail.com",
+  },
+  {
+    title: "Playerduo",
+    icon: "https://is2-ssl.mzstatic.com/image/thumb/Purple113/v4/22/87/d8/2287d8b6-4f8a-ece4-3efb-d044342384d1/source/256x256bb.jpg",
+    link: "https://playerduo.net/phulivegameonline",
+    bankAccount: "34197077",
   },
   {
     title: "Vietcombank",
@@ -35,23 +48,12 @@ const services = [
     bankAccount: "0791000023631",
   },
   {
-    title: "ACB",
-    icon: "https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-ACB-Ori.png",
-    link: "Vietcombank",
-    bankAccount: "34197077",
-  },
-  {
     title: "Momo",
     icon: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png",
     link: "Vietcombank",
     bankAccount: "0907645082",
   },
-  {
-    title: "Paypal",
-    icon: "https://cdn-icons-png.flaticon.com/512/2504/2504802.png",
-    link: "Paypal",
-    bankAccount: "phunguyen1992@gmail.com",
-  },
+  
 ];
 
 // const technologies = [
